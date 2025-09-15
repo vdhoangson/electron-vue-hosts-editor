@@ -1,0 +1,50 @@
+// App Header Styles
+.v-card-title {
+  background: linear-gradient(45deg, #1976d2 30%, #42a5f5 90%);
+}
+
+.language-selector {
+  ::v-deep(.v-field) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  ::v-deep(.v-field__input) {
+    color: white;
+  }
+
+  ::v-deep(.v-field__outline) {
+    --v-field-border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  ::v-deep(.v-field__outline__start),
+  ::v-deep(.v-field__outline__end) {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  ::v-deep(.v-label) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  ::v-deep(.v-icon) {
+    color: white;
+  }
+}
+
+// Loading Overlay Styles
+.v-overlay .v-progress-circular {
+  margin-bottom: 16px;
+}
+
+// Snackbar Styles
+.v-snackbar {
+  margin-top: 60px;
+
+  ::v-deep(.v-snackbar__wrapper) {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  ::v-deep(.v-snackbar__content) {
+    font-weight: 500;
+  }
+}

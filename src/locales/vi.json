@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "Hosts File Editor",
+    "subtitle": "Quản lý file hosts của hệ thống một cách dễ dàng"
+  },
+  "loading": {
+    "hosts": "Đang tải file hosts..."
+  },
+  "table": {
+    "title": "Danh sách Hosts",
+    "headers": {
+      "enabled": "Kích hoạt",
+      "ip": "Địa chỉ IP",
+      "domain": "Tên miền",
+      "comment": "Ghi chú",
+      "actions": "Thao tác"
+    },
+    "search": "Tìm kiếm theo IP, tên miền hoặc ghi chú...",
+    "noData": {
+      "title": "Chưa có dữ liệu",
+      "subtitle": "Nhấn \"Thêm mới\" để tạo entry đầu tiên"
+    }
+  },
+  "buttons": {
+    "add": "Thêm mới",
+    "refresh": "Tải lại",
+    "save": "Lưu file",
+    "saving": "Đang lưu...",
+    "loading": "Loading..."
+  },
+  "placeholders": {
+    "ip": "127.0.0.1",
+    "domain": "example.local",
+    "comment": "Ghi chú..."
+  },
+  "messages": {
+    "saveSuccess": "Lưu file hosts thành công",
+    "saveError": "Lỗi khi lưu file hosts",
+    "loadSuccess": "Đã tải file hosts thành công",
+    "loadError": "Lỗi khi tải file hosts",
+    "emptyHosts": "File hosts trống hoặc không có dữ liệu"
+  },
+  "language": {
+    "selector": "Ngôn ngữ",
+    "vietnamese": "Tiếng Việt",
+    "english": "English"
+  },
+  "notification": {
+    "close": "Đóng"
+  }
+}

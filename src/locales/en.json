@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "Hosts File Editor",
+    "subtitle": "Easily manage your system hosts file"
+  },
+  "loading": {
+    "hosts": "Loading hosts file..."
+  },
+  "table": {
+    "title": "Hosts List",
+    "headers": {
+      "enabled": "Enabled",
+      "ip": "IP Address",
+      "domain": "Domain",
+      "comment": "Comment",
+      "actions": "Actions"
+    },
+    "search": "Search by IP, domain or comment...",
+    "noData": {
+      "title": "No data available",
+      "subtitle": "Click \"Add New\" to create the first entry"
+    }
+  },
+  "buttons": {
+    "add": "Add New",
+    "refresh": "Refresh",
+    "save": "Save File",
+    "saving": "Saving...",
+    "loading": "Loading..."
+  },
+  "placeholders": {
+    "ip": "127.0.0.1",
+    "domain": "example.local",
+    "comment": "Comment..."
+  },
+  "messages": {
+    "saveSuccess": "Hosts file saved successfully ✅",
+    "saveError": "Error saving hosts file ❌",
+    "loadSuccess": "Hosts file loaded successfully ✅",
+    "loadError": "Error loading hosts file ❌",
+    "emptyHosts": "Hosts file is empty or has no data"
+  },
+  "language": {
+    "selector": "Language",
+    "vietnamese": "Tiếng Việt",
+    "english": "English"
+  },
+  "notification": {
+    "close": "Close"
+  }
+}
