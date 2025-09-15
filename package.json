@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "A modern hosts file editor built with Electron, Vue 3, and Vuetify",
   "main": "main.js",
-  "author": "vdhoangson",
+  "author": {
+    "name": "vdhoangson",
+    "email": "vdhoangson@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
