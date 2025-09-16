@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: 'yarn'
@@ -28,6 +28,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build binaries
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn build
 
       - name: Upload artifacts
@@ -50,4 +52,4 @@ jobs:
         with:
           files: dist/**/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
