@@ -37,6 +37,7 @@ jobs:
         with:
           name: ${{ runner.os }}-artifacts
           path: dist/*
+          overwrite: true
 
   release:
     needs: build
