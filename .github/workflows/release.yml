@@ -50,9 +50,12 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
         with:
-          files: dist/**/*
+          files: dist/**/*.exe, dist/**/*.AppImage, dist/**/*.zip, dist/**/*.dmg, dist/**/*.appx
           make_latest: true
+          tag_name: ${{ github.ref_name }}
+          name: v${{ github.ref_name }}
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
