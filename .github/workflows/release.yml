@@ -53,9 +53,11 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           files: dist/**/*.exe, dist/**/*.AppImage, dist/**/*.zip, dist/**/*.dmg, dist/**/*.appx
+          draft: false
           make_latest: true
           tag_name: ${{ github.ref_name }}
-          name: v${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
