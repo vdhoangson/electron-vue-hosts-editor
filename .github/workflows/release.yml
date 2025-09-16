@@ -52,6 +52,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: dist/**/*
+          make_latest: true
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
