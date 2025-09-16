@@ -1,8 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
 const { pathToFileURL } = require('url')
 const { readHostsFile, writeHostsFile } = require('./hosts')
-const { createApplicationMenu } = require('./src/constants/menu')
+const { createApplicationMenu } = require('./menu')
+const { uninstall, getUninstallInfo } = require('./uninstall')
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -59,4 +60,54 @@ ipcMain.handle('write-hosts', async (event, content) => {
     console.error('Error writing hosts file:', error)
     throw error
   }
+})
+
+// Uninstall functionality
+ipcMain.handle('uninstall-app', async event => {
+  try {
+    const result = await dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+      type: 'warning',
+      title: 'Uninstall Application',
+      message: 'Are you sure you want to uninstall Hosts Editor?',
+      detail:
+        'This will remove all application files, settings, and data. This action cannot be undone.',
+      buttons: ['Cancel', 'Uninstall'],
+      defaultId: 0,
+      cancelId: 0,
+    })
+
+    if (result.response === 1) {
+      // Uninstall button clicked
+      const uninstallResult = await uninstall()
+
+      if (uninstallResult.success) {
+        await dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'info',
+          title: 'Uninstall Complete',
+          message: 'Hosts Editor has been successfully uninstalled.',
+          detail: 'The application will now close.',
+          buttons: ['OK'],
+        })
+
+        // Close the application
+        app.quit()
+        return uninstallResult
+      } else {
+        throw new Error(uninstallResult.message)
+      }
+    }
+
+    return { success: false, message: 'Uninstall cancelled by user' }
+  } catch (error) {
+    console.error('Uninstall error:', error)
+    await dialog.showErrorBox(
+      'Uninstall Failed',
+      `Failed to uninstall application: ${error.message}`
+    )
+    throw error
+  }
+})
+
+ipcMain.handle('get-uninstall-info', () => {
+  return getUninstallInfo()
 })

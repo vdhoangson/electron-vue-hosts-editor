@@ -21,6 +21,32 @@ Download the latest release for your platform from the [Releases](https://github
 2. Run the installer and follow the setup wizard
 3. Launch the application from your applications menu
 
+### Uninstallation
+
+#### Option 1: Using Windows Add/Remove Programs
+
+1. Open **Settings** → **Apps** → **Apps & features**
+2. Find **Hosts Editor** in the list
+3. Click **Uninstall** and follow the prompts
+
+#### Option 2: Standalone Uninstaller (Advanced)
+
+```bash
+# From the application directory
+node uninstall-standalone.js
+```
+
+### What Gets Removed
+
+The uninstaller removes:
+
+- ✅ Application executable and files
+- ✅ Desktop shortcuts
+- ✅ Start menu entries
+- ✅ Application data and settings
+- ✅ Registry entries (Windows)
+- ✅ Temporary files
+
 ### System Requirements
 
 - **Windows**: Windows 10 or later

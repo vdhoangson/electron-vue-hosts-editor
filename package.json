@@ -1,6 +1,6 @@
 {
   "name": "electron-vue-hosts-editor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A modern hosts file editor built with Electron, Vue 3, and Vuetify",
   "main": "main.js",
   "author": {
@@ -24,10 +24,11 @@
     "start": "electron . --trace-warnings",
     "build": "yarn build:renderer && electron-builder",
     "builder": "electron-builder",
+    "uninstall": "node uninstall-standalone.js",
     "format": "prettier --write \"src/**/*.{js,vue,json,css,scss,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,vue,json,css,scss,md}\"",
-    "lint": "eslint src --ext .js,.vue",
-    "lint:fix": "eslint src --ext .js,.vue --fix"
+    "lint": "eslint src --ext .js,vue",
+    "lint:fix": "eslint src --ext .js,vue --fix"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
@@ -51,8 +52,8 @@
     "vite": "^5.0.0"
   },
   "build": {
-    "appId": "com.vdhoangson.hostseditor",
-    "productName": "HostsEditor",
+    "appId": "vdhoangson.ModernHostsFileEditor",
+    "productName": "Modern Hosts File Editor",
     "directories": {
       "output": "release"
     },
@@ -61,11 +62,17 @@
       "main.js",
       "preload.js",
       "hosts.js",
+      "menu.js",
+      "uninstall.js",
       "package.json"
     ],
     "win": {
-      "target": "nsis",
-      "icon": "build/icons/icon.ico"
+      "target": [
+        "nsis",
+        "appx"
+      ],
+      "icon": "build/icons/icon.ico",
+      "requestedExecutionLevel": "asInvoker"
     },
     "linux": {
       "target": [
@@ -73,6 +80,12 @@
         "deb"
       ],
       "icon": "build/icons"
+    },
+    "appx": {
+      "identityName": "vdhoangson.ModernHostsFileEditor",
+      "publisher": "CN=18EB43C2-BA74-4583-88C2-F0F813F45670",
+      "publisherDisplayName": "vdhoangson",
+      "backgroundColor": "#2c3e50"
     }
   }
 }
