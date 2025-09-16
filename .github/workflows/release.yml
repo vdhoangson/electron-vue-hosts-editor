@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*.*.*'
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -48,4 +50,4 @@ jobs:
         with:
           files: dist/**/*
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
